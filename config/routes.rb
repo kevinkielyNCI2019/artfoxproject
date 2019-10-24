@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :artworks
   devise_for :artists
   devise_for :customers
   root 'static_pages#home'

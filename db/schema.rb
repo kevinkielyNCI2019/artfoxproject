@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_23_180927) do
+ActiveRecord::Schema.define(version: 2019_10_24_142159) do
 
   create_table "artists", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -26,6 +26,19 @@ ActiveRecord::Schema.define(version: 2019_10_23_180927) do
     t.string "a_paypal"
     t.index ["email"], name: "index_artists_on_email", unique: true
     t.index ["reset_password_token"], name: "index_artists_on_reset_password_token", unique: true
+  end
+
+  create_table "artworks", force: :cascade do |t|
+    t.string "title"
+    t.string "cat"
+    t.text "desc"
+    t.decimal "price"
+    t.string "imageurl"
+    t.boolean "sold"
+    t.integer "artist_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["artist_id"], name: "index_artworks_on_artist_id"
   end
 
   create_table "customers", force: :cascade do |t|
