@@ -22,18 +22,16 @@
                  <li><%= link_to 'Edit Artist Profile',edit_artist_registration_path %></li>
                  <li><%= link_to "Your Artist Account", "/artist-account" %></li>
                  <li><%= link_to 'Sign out', destroy_artist_session_path, :method => :delete %></li>
-          <% else %>
-                 <li><%= link_to 'Register as Artist', new_artist_registration_path %></li> 
-                 <li><%= link_to 'Sign in as Artist', new_artist_session_path %></li>
-          <% end %>
-          
-        <!-- This code deals with Customer -->
-         <% if customer_signed_in? %>
+          <!-- This code deals with Customer -->
+          <% elsif customer_signed_in? %>
                  <li>Hi, Customer: <%= current_customer.c_name %></li>
                  <li><%= link_to 'Edit Customer Profile',edit_customer_registration_path %></li>
                  <li><%= link_to "Your Customer Account", "/customer-account" %></li>
                  <li><%= link_to 'Sign out', destroy_customer_session_path, :method => :delete %></li>
+                 
           <% else %>
+                  <li><%= link_to 'Register as Artist', new_artist_registration_path %></li> 
+                 <li><%= link_to 'Sign in as Artist', new_artist_session_path %></li>
                  <li><%= link_to 'Register as Customer', new_customer_registration_path %></li> 
                  <li><%= link_to 'Sign in as Customer', new_customer_session_path %></li>
           <% end %>
