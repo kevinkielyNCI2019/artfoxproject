@@ -4,24 +4,12 @@ class ArtworksController < ApplicationController
   # GET /artworks
   # GET /artworks.json
   def index
-    #@artworks = Artwork.all
-    
-    if artist_signed_in?
-    @artist = Artist.find(current_artist.id)
-    @artworks = @artist.artworks.all
-    else
-      @artworks = Artwork.all
-      #redirect_to :root #WHY DID I NEED TO COMMENT OUT THIS???
-    end 
-    
+    @artworks = Artwork.all
   end
 
   # GET /artworks/1
   # GET /artworks/1.json
   def show
-    
-    # DONT FORGET CODE HERE TOO!!!!!!!!!!!!!!!!!
-    
   end
 
   # GET /artworks/new
