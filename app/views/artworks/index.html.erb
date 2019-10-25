@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>Picture</th>
       <th>Title</th>
       <th>Cat</th>
       <th>Desc</th>
@@ -19,6 +20,7 @@
   <tbody>
     <% @artworks.each do |artwork| %>
       <tr>
+        <td><%= image_tag(artwork.artpic) if artwork.artpic.attached? %></td>
         <td><%= artwork.title %></td>
         <td><%= artwork.cat %></td>
         <td><%= artwork.desc %></td>

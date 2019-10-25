@@ -4,6 +4,9 @@
  <% if @artwork.artist.email == @artist.email %>
 
 <p>
+<%= image_tag(@artwork.artpic, :class => "itemholsIm") if @artwork.artpic.attached? %>
+</p>
+<p>
   <strong>Title:</strong>
   <%= @artwork.title %>
 </p>
