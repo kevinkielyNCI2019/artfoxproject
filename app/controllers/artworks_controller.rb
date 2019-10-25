@@ -19,7 +19,7 @@ class ArtworksController < ApplicationController
   # GET /artworks/1
   # GET /artworks/1.json
   def show
-    
+    @artist = Artist.find(current_artist.id)
     # DONT FORGET CODE HERE TOO!!!!!!!!!!!!!!!!!
     
   end

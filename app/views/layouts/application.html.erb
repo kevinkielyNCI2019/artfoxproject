@@ -16,6 +16,12 @@
         <li><%= link_to "About Us", aboutus_path %></li>
         <li><%= link_to "FAQ", faq_path %></li>
         
+        <% if !artist_signed_in? %>
+        
+        <li><%= link_to "Browse Art", "/artworks" %></li>
+        
+        <% end %>
+        
         <!-- This code deals with Artist -->
         <% if artist_signed_in? %>
                  <li>Hi, Artist: <%= current_artist.a_name %></li>

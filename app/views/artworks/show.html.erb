@@ -1,5 +1,8 @@
 <p id="notice"><%= notice %></p>
 
+
+ <% if @artwork.artist.email == @artist.email %>
+
 <p>
   <strong>Title:</strong>
   <%= @artwork.title %>
@@ -35,5 +38,13 @@
   <%= @artwork.artist %>
 </p>
 
+
+
 <%= link_to 'Edit', edit_artwork_path(@artwork) %> |
 <%= link_to 'Back', artworks_path %>
+
+<% else %>
+   
+      <h1>You do not have permission to view this artwork!</h1>
+      
+      <% end %>
