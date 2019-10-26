@@ -1,6 +1,24 @@
 <h1>Editing Artwork</h1>
 
+<% if artist_signed_in? %>
+
+<% if @artwork.artist.email == @artist.email %>
+
 <%= render 'form', artwork: @artwork %>
+
+<% else %>
+   
+      <h1>You do not have permission to view this artwork!</h1>
+      
+      <% end %>
 
 <%= link_to 'Show', @artwork %> |
 <%= link_to 'Back', artworks_path %>
+
+<% elsif customer_signed_in? %>
+<p>Customer cant do this!</p>
+<% else %>
+<p>Unregged cant do this!</p>
+
+
+<% end %>

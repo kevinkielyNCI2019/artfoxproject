@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  get 'cart/index'
   resources :artworks
   devise_for :artists
   devise_for :customers
@@ -13,6 +14,13 @@ Rails.application.routes.draw do
  
    get '/artist-account' => 'static_pages#artist-account'
    get '/customer-account' => 'static_pages#customer-account'
+  
+  
+  #CART ROUTES
+  get '/cart/clear', to: 'cart#clearCart'
+  get '/cart' =>'cart#index'
+  get '/cart/:id', to: 'cart#add'
+  get '/cart/remove/:id' => 'cart#remove'
   
   #  get 'static_pages/home'
  # get 'static_pages/aboutus'

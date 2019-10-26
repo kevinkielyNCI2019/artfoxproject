@@ -19,9 +19,9 @@ class ArtworksController < ApplicationController
   # GET /artworks/1
   # GET /artworks/1.json
   def show
-    @artist = Artist.find(current_artist.id)
-    # DONT FORGET CODE HERE TOO!!!!!!!!!!!!!!!!!
-    
+  
+   # @artist = Artist.find(current_artist.id)
+ 
   end
 
   # GET /artworks/new
@@ -31,6 +31,11 @@ class ArtworksController < ApplicationController
 
   # GET /artworks/1/edit
   def edit
+    if artist_signed_in?
+    @artist = Artist.find(current_artist.id)
+  elsif customer_signed_in?
+    @customer = Customer.find(current_customer.id)
+    end
   end
 
   # POST /artworks

@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 
-
+ <% if @artwork.artist.email == @artist.email %>
 
 <p>
 <%= image_tag(@artwork.artpic, :class => "itemholsIm") if @artwork.artpic.attached? %>
@@ -46,3 +46,8 @@
 <%= link_to 'Edit', edit_artwork_path(@artwork) %> |
 <%= link_to 'Back', artworks_path %>
 
+<% else %>
+   
+      <h1>You do not have permission to view this artwork!</h1>
+      
+      <% end %>

@@ -1,0 +1,23 @@
+<% if @cart.empty? %>
+    <p>Please add some artworks to the cart!</p>
+<% end %>
+
+<p id="notice"><%= notice %></p>
+<div id="itemsContainer">
+    <table id="customers">
+        <% total = 0 %>
+        <% @cart.each do |id| %>
+          <% artwork = Artwork.find_by_id(id) %>
+         <tr>
+            <td>
+                <div class="image">
+<%= link_to artwork.title, artwork %>
+                </div>
+                </td>
+                <td><%= artwork.id %></td>
+                <td><a href="/cart/remove/<%= artwork.id %>">Remove From Cart</a></td>
+        </tr>
+        <% end %>
+    </table>
+    <a href="/cart/clear" class="button">Clear Cart</a>
+      </div>
