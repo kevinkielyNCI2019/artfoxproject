@@ -57,7 +57,33 @@ class CartController < ApplicationController
     redirect_to :action => :index
   end
   
+#### Here is the Cart Create Order code
+
+def createOrder
+ # Step 1: Get the current user
+ @customer = Customer.find(current_customer.id)
+ 
+ # Step 2: Create a new order and associate it with the current user
+       @order = @customer.orders.build(:order_date => DateTime.now, :status => 'Pending')
+       @order.save
   
+  # Step 3: For each artwork in the cart, create a new item on the order!!
+       @cart = session[:cart] || {} # Get the content of the Cart
+       @cart.each do | id | #### QUANTITY REMOVED!!
+       artwork = Artwork.find_by_id(id)
+       @orderartwork = @order.orderartworks.build(:artwork_id => artwork.id, :title => artwork.title, :cat => artwork.cat, :desc => artwork.desc, :price=> artwork.price, :sold => artwork.sold)
+       @orderartwork.save
+       end
+       
+       @orders = Order.all
+    
+    
+    @orderartworks = Orderartwork.where(order_id: Order.last)
+    
+    session[:cart] = nil
+       
+       
+end
   
   
 end

@@ -1,9 +1,27 @@
 Rails.application.routes.draw do
   
+  get 'orderartworks/index'
+  get 'orderartworks/show'
+  get 'orderartworks/new'
+  get 'orderartworks/edit'
+  
+  resources :orders do 
+    resources:orderitems
+  end
+  
+  
   get 'cart/index'
   resources :artworks
   devise_for :artists
-  devise_for :customers
+  
+  devise_for :customers do
+      resources:orders
+      
+    end
+    
+get '/checkout' => 'cart#createOrder'
+    
+    
   root 'static_pages#home'
   
   get '/aboutus' => 'static_pages#aboutus'
@@ -21,6 +39,9 @@ Rails.application.routes.draw do
   get '/cart' =>'cart#index'
   get '/cart/:id', to: 'cart#add'
   get '/cart/remove/:id' => 'cart#remove'
+  
+  
+  get '/paid/:id' => 'static_pages#paid'
   
   #  get 'static_pages/home'
  # get 'static_pages/aboutus'
