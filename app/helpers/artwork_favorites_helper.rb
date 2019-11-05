@@ -1,0 +1,2 @@
+module ArtworkFavoritesHelper
+end

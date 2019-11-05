@@ -41,7 +41,8 @@
   <%= @artwork.artist %>
 </p>
 
-
+<%= link_to favorite_text, artwork_favorites_update_path(artwork: @artwork), id:'favorite_link', remote: true %> 
+<br/>
 
 <%= link_to 'Edit', edit_artwork_path(@artwork) %> |
 <%= link_to 'Back', artworks_path %>

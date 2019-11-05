@@ -10,4 +10,14 @@
 
 <p>Your PayPal Email:  <%= current_customer.c_paypal %></p>
 
-<li><%= link_to "View Orders", orders_path  %></li>
+<%= link_to 'Edit Your Details',edit_customer_registration_path, :class => "w3-bar-item w3-button" %>
+
+
+
+<h1>YOur FAAVE ARTWORKS</h1>
+
+<% current_customer.favorites.each do |favorite| %>
+
+You add this artwork to favourites: <%= link_to favorite.artwork.title, favorite.artwork %>
+
+<% end %>

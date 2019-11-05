@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  get 'artwork_favorites/update'
   get 'orderartworks/index'
   get 'orderartworks/show'
   get 'orderartworks/new'
@@ -28,7 +29,8 @@ get '/checkout' => 'cart#createOrder'
   
   get '/faq' => 'static_pages#faq'
   
- # root :to => 'site#home'
+  
+ #root :to => 'site#home'
  
    get '/artist-account' => 'static_pages#artist-account'
    get '/customer-account' => 'static_pages#customer-account'

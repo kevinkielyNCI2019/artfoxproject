@@ -19,7 +19,7 @@ class ArtworksController < ApplicationController
   # GET /artworks/1
   # GET /artworks/1.json
   def show
-  
+  @favorite_exists = Favorite.where(artwork: @artwork, customer: current_customer) == [] ? false : true
    # @artist = Artist.find(current_artist.id)
  
   end
