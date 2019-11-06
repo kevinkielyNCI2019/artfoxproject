@@ -73,6 +73,8 @@ def createOrder
        artwork = Artwork.find_by_id(id)
        @orderartwork = @order.orderartworks.build(:artwork_id => artwork.id, :title => artwork.title, :cat => artwork.cat, :desc => artwork.desc, :price=> artwork.price, :sold => artwork.sold)
        @orderartwork.save
+     
+       
        end
        
        @orders = Order.all

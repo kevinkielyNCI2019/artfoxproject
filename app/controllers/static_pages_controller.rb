@@ -10,7 +10,6 @@ class StaticPagesController < ApplicationController
   
   def paid
     
-    
     @order = Order.find_by(id: params[:id])
     @order.update_attribute(:status, "Paid by User: #{current_customer.email}")
     

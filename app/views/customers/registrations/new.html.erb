@@ -1,44 +1,51 @@
-<h2>Sign up</h2>
+<h1 class="w3-center">Sign up here for an Customer(Buyer) Account</h1>
+
+<center>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
+  <table id="customers">
+    <tbody>
+      <tr>
+        <td><%= f.label "Email Address (Username)" %></td>
+        <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
+      </tr>
+      <tr>
+        <td><%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+    <% end %></td>
+        <td><%= f.password_field :password, autocomplete: "new-password" %></td>
+      </tr>
+      <tr>
+        <td><%= f.label :password_confirmation %></td>
+        <td><%= f.password_field :password_confirmation, autocomplete: "new-password" %></td>
+      </tr>
+      <tr>
+        <td><%= f.label "Your Name" %></td>
+        <td><%= f.text_field :c_name %></td>
+      </tr>
+      <tr>
+        <td><%= f.label "Your Address" %></td>
+        <td><%= f.text_field :address %></td>
+      </tr>
+      <tr>
+        <td><%= f.label "Phone Number" %></td>
+        <td><%= f.number_field :c_phonenumber %></td>
+      </tr>
+      <tr>
+        <td><%= f.label "PayPal Email Address" %></td>
+        <td><%= f.email_field :c_paypal %></td>
+      </tr>
+      <tr>
+        <td colspan="2"><center><%= f.submit "Sign up" %></center></td>
+      </tr>
+    </tbody>
+  </table>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-  
-   <!-- here is the custom added fields -->
-  <div class="field">
-    <%= f.label :c_name %><br />
-    <%= f.text_field :c_name %>
-  </div>
-
-  <div class="field">
-    <%= f.label :c_phonenumber %><br />
-    <%= f.text_field :c_phonenumber %>
-  </div>
-  <div class="field">
-    <%= f.label :c_paypal %><br />
-    <%= f.text_field :c_paypal %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
+ 
 <% end %>
 
 <%= render "customers/shared/links" %>
+</center>

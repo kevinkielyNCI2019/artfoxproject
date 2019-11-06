@@ -1,42 +1,54 @@
+<% provide(:title, "ARTWORK CATALOGUE") %>
+
 <p id="notice"><%= notice %></p>
 
-<h1>Artworks</h1>
+<% if @artworks.empty? %>
+<h1 class="w3-center">PORTFOLIO EMPTY! PLEASE ADD ARTWORKS</h1>
+<% else %>
+<h1 class="w3-center">BROWSE ARTWORKS</h1>
+<% end %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Picture</th>
-      <th>Title</th>
-      <th>Cat</th>
-      <th>Desc</th>
-      <th>Price</th>
-      <th>Imageurl</th>
-      <th>Sold</th>
-      <th>Artist</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @artworks.each do |artwork| %>
-      <tr>
-        <td><%= image_tag(artwork.artpic) if artwork.artpic.attached? %></td>
-        <td><%= artwork.title %></td>
-        <td><%= artwork.cat %></td>
-        <td><%= artwork.desc %></td>
-        <td><%= artwork.price %></td>
-        <td><%= artwork.imageurl %></td>
-        <td><%= artwork.sold %></td>
-        <td><%= artwork.artist.email %></td>
-        <td><%= link_to 'Show', artwork %></td>
-        <td><%= link_to 'Edit', edit_artwork_path(artwork) %></td>
-        <td><%= link_to 'Destroy', artwork, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <td><a href="/cart/<%= artwork.id %>" class="button">Add To Cart</a></td>
-      </tr>
+<% @artworks.each do |artwork| %>
+
+
+
+<div class="w3-col m4 w3-panel">
+        
+        <%= image_tag(artwork.artpic, :class => "itemholsIm") if artwork.artpic.attached? %>
+
+</div>
+
+<div class="w3-col m8 w3-panel">
+          <div class="myCols">
+            <strong>"<%= artwork.title %>"</strong> | <%= artwork.cat %> | 
+            Price: <%= number_to_currency(artwork.price, :unit => "€")  %><br/>
+            <p class="w3-left"><%= artwork.desc %></p>
+            Sold?: <%= artwork.sold %>
+            
+        <% if artist_signed_in? %>
+        <%= link_to 'Edit', edit_artwork_path(artwork), :class => "w3-button w3-large w3-black w3-hover-yellow", :role => "button" %>
+        <%= link_to 'Delete Artwork', artwork, :class => "w3-button w3-large w3-black w3-hover-yellow", :role => "button", method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% end %>
+        
+        <% if customer_signed_in? %>
+        <%= link_to 'Show More >>', artwork, :class => "w3-button w3-large w3-black w3-hover-yellow", :role => "button" %>
+        <a href="/cart/<%= artwork.id %>" class="w3-button w3-large w3-black w3-hover-yellow">Add me to cart!</a>
+        <% end %>
+        
+      
+                </div>
+</div>
+      
     <% end %>
-  </tbody>
-</table>
+    
+    
 
-<br>
-
-<%= link_to 'New Artwork', new_artwork_path %>
+<div class="bottomButtons">   
+    
+  <% if artist_signed_in? %>
+    
+       <%= link_to 'Add Another Artwork',  new_artwork_path, :class => "w3-button w3-large w3-black w3-hover-yellow", :role => "button" %>
+       
+       <% end %>
+    </div>

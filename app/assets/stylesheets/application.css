@@ -111,3 +111,25 @@ background-color: gold;
 
 }
 
+.myCols {
+    background-color: whitesmoke;
+    padding: 10px;
+    border-bottom: 2px gold solid;
+    margin-bottom: 10px;
+}
+
+.myCols h2 {
+    
+    padding-left: 10px;
+}
+
+.myCols img {
+    border: 1px solid lightgrey;
+}
+
+.bottomButtons {
+   text-align: center;
+   margin-top: 10px;
+   padding-bottom: 10px;
+}
+

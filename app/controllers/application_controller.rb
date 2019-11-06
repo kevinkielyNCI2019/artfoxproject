@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
     protected
 
         def configure_permitted_parameters
-            devise_parameter_sanitizer.permit(:sign_up, keys: [:a_name, :a_address, :a_phonenumber, :a_paypal, :c_name, :c_phonenumber, :c_paypal])
-            devise_parameter_sanitizer.permit(:account_update, keys: [:a_name, :a_address, :a_phonenumber, :a_paypal, :c_name, :c_phonenumber, :c_paypal])
+            devise_parameter_sanitizer.permit(:sign_up, keys: [:a_name, :a_address, :a_phonenumber, :a_paypal, :c_name, :address, :c_phonenumber, :c_paypal])
+            devise_parameter_sanitizer.permit(:account_update, keys: [:a_name, :a_address, :a_phonenumber, :a_paypal, :c_name, :address, :c_phonenumber, :c_paypal])
         end
 end
