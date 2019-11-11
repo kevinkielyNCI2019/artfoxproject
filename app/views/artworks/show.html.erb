@@ -1,34 +1,23 @@
 <p id="notice"><%= notice %></p>
 
 
+<p><%= link_to '<< Back to List of Artworks', artworks_path, :class => "w3-button w3-large w3-black w3-hover-yellow", :role => "button" %></p>
 
+  <h1 class="w3-center"><%= @artwork.title %></h1>
 
 <p>
 <%= image_tag(@artwork.artpic, :class => "itemholsIm") if @artwork.artpic.attached? %>
 </p>
+
+
 <p>
-  <strong>Title:</strong>
-  <%= @artwork.title %>
+  <strong>Artist: </strong><%= @artwork.artist.a_name %> | <strong>Art Category:</strong> <%= @artwork.cat %> | 
+   <strong>Price: </strong><%= number_to_currency(@artwork.price, :unit => "€")  %>
 </p>
 
 <p>
-  <strong>Cat:</strong>
-  <%= @artwork.cat %>
-</p>
-
-<p>
-  <strong>Desc:</strong>
+  <strong>Description:</strong>
   <%= @artwork.desc %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @artwork.price %>
-</p>
-
-<p>
-  <strong>Imageurl:</strong>
-  <%= @artwork.imageurl %>
 </p>
 
 <p>
@@ -36,14 +25,13 @@
   <%= @artwork.sold %>
 </p>
 
-<p>
-  <strong>Artist:</strong>
-  <%= @artwork.artist %>
-</p>
 
-<%= link_to favorite_text, artwork_favorites_update_path(artwork: @artwork), id:'favorite_link', remote: true %> 
-<br/>
+<% if customer_signed_in? %>
+<%= link_to favorite_text, artwork_favorites_update_path(artwork: @artwork), :class => "w3-button w3-large w3-black w3-hover-yellow", id:'favorite_link', remote: true %> 
+<br/><% end %>
 
-<%= link_to 'Edit', edit_artwork_path(@artwork) %> |
-<%= link_to 'Back', artworks_path %>
+<% if artist_signed_in? %>
+<%= link_to 'Edit', edit_artwork_path(@artwork),:class => "w3-button w3-large w3-black w3-hover-yellow" %>  
+<% end %>
+<%= link_to 'Back', artworks_path,:class => "w3-button w3-large w3-black w3-hover-yellow" %>
 

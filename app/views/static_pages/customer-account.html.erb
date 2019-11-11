@@ -1,24 +1,50 @@
 <% provide(:title, "Your Customer Account") %>
 
-<h1>These are you details:</h1>
-<p>Your Email:  <%= current_customer.email %></p>
+<h1 class="w3-center">Your account details:</h3>
+<table id="customers">
+    <tbody>
+      <tr>
+          <td>Your Email (Username): </td>
+          <td><%= current_customer.email %></td>
+      </tr>
+        <tr>
+          <td>Your Name: </td>
+          <td><%= current_customer.c_name %></td>
+      </tr>
+      <tr>
+          <td>Your Address: </td>
+          <td><%= current_customer.address %></td>
+      </tr>
+      <tr>
+          <td>Your Phone Number: </td>
+          <td><%= current_customer.c_phonenumber %></td>
+      </tr>
+       <tr>
+          <td>Your PayPal Email: </td>
+          <td><%= current_customer.c_paypal %></td>
+      </tr>
+      
+     </tbody>
+     
+</table>
 
-<p>Your Name:  <%= current_customer.c_name %></p>
+<br/>
 
-<p>Your Address:  <%= current_customer.address %></p>
-
-<p>Your Phone:  <%= current_customer.c_phonenumber %></p>
-
-<p>Your PayPal Email:  <%= current_customer.c_paypal %></p>
-
-<%= link_to 'Edit Your Details',edit_customer_registration_path, :class => "w3-bar-item w3-button" %>
+<center><%= link_to 'Edit Your Details',edit_customer_registration_path, :class => "w3-button w3-large w3-black w3-hover-yellow" %></center>
 
 
 
-<h1>YOur FAAVE ARTWORKS</h1>
+
+<h1 class="w3-center">Your favourite Artworks:</h3>
 
 <% current_customer.favorites.each do |favorite| %>
 
-You add this artwork to favourites: <%= link_to favorite.artwork.title, favorite.artwork %>
+<div class="w3-col m4 w3-panel">
+<%= image_tag(favorite.artwork.artpic, :class => "itemholsIm") if favorite.artwork.artpic.attached? %><br/>
+<center><%= link_to favorite.artwork.title, favorite.artwork %></center>
+</div>
+<% end %>
 
+<% if current_customer.favorites.empty? %>
+Please add some favourites!
 <% end %>

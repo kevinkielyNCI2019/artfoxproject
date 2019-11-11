@@ -40,7 +40,7 @@
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
-    background-color: #ff5722;
+    background-color: gold;
     color: white;
 }
 
@@ -108,7 +108,7 @@ background-color: gold;
 /* second nav bar */
 #secondNavbar {
 	background-color: black;
-
+    color: #fff;
 }
 
 .myCols {
@@ -133,3 +133,17 @@ background-color: gold;
    padding-bottom: 10px;
 }
 
+.alert {
+    text-align: center;
+    font-size: large;
+    padding: 20px;
+    background-color: red;
+    color: white;
+}
+.notice {
+    text-align: center;
+    font-size: large;
+    padding: 20px;
+    background-color: green;
+    color: white;
+}

@@ -1,14 +1,33 @@
 <% provide(:title, "Your Artist Account") %>
 
-<h1>These are you details:</h1>
-<p>Your Email:  <%= current_artist.email %></p>
+<h1 class="w3-center">Your account details:</h3>
+<table id="customers">
+    <tbody>
+      <tr>
+          <td>Your Email (Username): </td>
+          <td><%= current_artist.email %></td>
+      </tr>
+      <tr>
+          <td>Your Name: </td>
+          <td><%= current_artist.a_name %></td>
+      </tr>
+      <tr>
+          <td>Your Address: </td>
+          <td><%= current_artist.a_address %></td>
+      </tr>
+      <tr>
+          <td>Your Phone Number: </td>
+          <td><%= current_artist.a_phonenumber %></td>
+      </tr>
+       <tr>
+          <td>Your PayPal Email: </td>
+          <td><%= current_artist.a_paypal %></td>
+      </tr>
+      
+     </tbody>
+     
+</table>
+<br/>
 
-<p>Your Name:  <%= current_artist.a_name %></p>
+<center><%= link_to 'Edit Your Details',edit_artist_registration_path, :class => "w3-button w3-large w3-black w3-hover-yellow" %></center>
 
-<p>Your Address:  <%= current_artist.a_address %></p>
-
-<p>Your Phone:  <%= current_artist.a_phonenumber %></p>
-
-<p>Your PayPal Email:  <%= current_artist.a_paypal %></p>
-
-<%= link_to 'Edit Your Details',edit_artist_registration_path, :class => "w3-bar-item w3-button" %>

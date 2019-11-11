@@ -25,14 +25,14 @@
             Price: <%= number_to_currency(artwork.price, :unit => "€")  %><br/>
             <p class="w3-left"><%= artwork.desc %></p>
             Sold?: <%= artwork.sold %>
-            
+            <%= link_to 'Show More >>', artwork, :class => "w3-button w3-large w3-black w3-hover-yellow", :role => "button" %>
         <% if artist_signed_in? %>
         <%= link_to 'Edit', edit_artwork_path(artwork), :class => "w3-button w3-large w3-black w3-hover-yellow", :role => "button" %>
         <%= link_to 'Delete Artwork', artwork, :class => "w3-button w3-large w3-black w3-hover-yellow", :role => "button", method: :delete, data: { confirm: 'Are you sure?' } %>
         <% end %>
         
         <% if customer_signed_in? %>
-        <%= link_to 'Show More >>', artwork, :class => "w3-button w3-large w3-black w3-hover-yellow", :role => "button" %>
+        
         <a href="/cart/<%= artwork.id %>" class="w3-button w3-large w3-black w3-hover-yellow">Add me to cart!</a>
         <% end %>
         
@@ -48,7 +48,7 @@
     
   <% if artist_signed_in? %>
     
-       <%= link_to 'Add Another Artwork',  new_artwork_path, :class => "w3-button w3-large w3-black w3-hover-yellow", :role => "button" %>
+       <%= link_to 'Add Artwork',  new_artwork_path, :class => "w3-button w3-large w3-black w3-hover-yellow", :role => "button" %>
        
        <% end %>
     </div>

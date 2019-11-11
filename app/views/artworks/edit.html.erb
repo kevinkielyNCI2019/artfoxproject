@@ -1,4 +1,4 @@
-<h1>Editing Artwork</h1>
+<h1 class="w3-center">Edit Artwork Details</h1>
 
 <% if artist_signed_in? %>
 
@@ -8,12 +8,12 @@
 
 <% else %>
    
-      <h1>You do not have permission to view this artwork!</h1>
+      <h1>You do not have permission to edit this artwork!</h1>
       
       <% end %>
 
-<%= link_to 'Show', @artwork %> |
-<%= link_to 'Back', artworks_path %>
+<%= link_to 'Show', @artwork, :class => "w3-button w3-large w3-black w3-hover-yellow" %>
+<%= link_to 'Back', artworks_path,:class => "w3-button w3-large w3-black w3-hover-yellow" %>
 
 <% elsif customer_signed_in? %>
 <p>Customer cant do this!</p>
