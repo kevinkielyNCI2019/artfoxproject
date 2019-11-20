@@ -2,7 +2,7 @@ class CartController < ApplicationController
   
   #start of add to cart logic
   
-  #before_action :authenticate_user!
+  before_action :authenticate_customer!
   
   
   def add
@@ -69,8 +69,9 @@ def createOrder
   
   # Step 3: For each artwork in the cart, create a new item on the order!!
        @cart = session[:cart] || {} # Get the content of the Cart
-       @cart.each do | id | #### QUANTITY REMOVED!!
+       @cart.each do | id | 
        artwork = Artwork.find_by_id(id)
+       artwork.update_attribute(:status, "Sold")
        @orderartwork = @order.orderartworks.build(:artwork_id => artwork.id, :title => artwork.title, :cat => artwork.cat, :desc => artwork.desc, :price=> artwork.price, :sold => artwork.sold)
        @orderartwork.save
      

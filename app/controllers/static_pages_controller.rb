@@ -13,12 +13,7 @@ class StaticPagesController < ApplicationController
     @order = Order.find_by(id: params[:id])
     @order.update_attribute(:status, "Paid by User: #{current_customer.email}")
     
-    #@artworks = Orderartwork.where(order_id: params[:id])
-      #@artworks.each do | id | 
-       #@artwork = Artwork.find_by_id(id)
     
     
-   # @artwork.update_attribute(:sold, true)
-  #end
   end
 end

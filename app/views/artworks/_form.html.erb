@@ -1,3 +1,5 @@
+ <% if artist_signed_in? %>
+
 <center>
 
 <%= form_with(model: artwork, local: true) do |form| %>
@@ -31,6 +33,7 @@
         <td><%= form.label "Price" %></td>
         <td><%= form.text_field :price, :size=>"6"  %></td>
       </tr>
+      
       <tr>
         <td><%= form.label "Add a picture" %></td>
         <td><%= form.file_field :artpic %></td>
@@ -40,8 +43,17 @@
       </tr>
     </tbody>
     </table>
-
+<div style="visibility: hidden;">
+     
+        <%= form.label "Status" %>
+        <%= form.text_field :status, :size=>"6", :value=>"In Stock"  %>
+      
+      </div>
 
 <% end %>
 
 </center>
+
+<% else %>
+YOU DO NOT HAVE PERMISSION TO VIEW THIS PAGE<br><br>
+<% end %>

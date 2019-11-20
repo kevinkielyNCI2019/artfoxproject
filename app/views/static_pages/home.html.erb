@@ -15,9 +15,13 @@
     
 </div>
 <br/><br/><br/>
+
+<% if artist_signed_in? || customer_signed_in? %>
+
+<% else %>
 <div class="w3-row w3-center w3-padding-16">
-        
-        <div class="w3-quarter w3-section w3-yellow w3-padding-16">
+        <span class="homeboxes">
+        <div class="w3-quarter w3-section w3-orange w3-padding-16">
             <span class="w3-xlarge">Artist?</span> <br/><a href="/artists/sign_up">Sign up here</a>
         </div>
         <div class="w3-quarter w3-section w3-green w3-padding-16">
@@ -30,5 +34,8 @@
             <span class="w3-xlarge">Buyer?</span> <br/><a href="/customers/sign_in">Login here</a>
         </div>
 
-        
+        </span>
     </div>
+<% end %>
+
+

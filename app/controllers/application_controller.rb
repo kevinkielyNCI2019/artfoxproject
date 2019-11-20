@@ -1,7 +1,18 @@
 class ApplicationController < ActionController::Base
     
     def favorite_text
-        return @favorite_exists ? "Unfavorite" : "Favorite"
+        return @favorite_exists ? "Remove from Favourites" : "Add to Favourites!"
+    end
+    
+    def after_sign_in_path_for(resource)
+        if artist_signed_in?
+        
+     "/artist-account"
+    else
+     "/customer-account"
+     
+    end
+     
     end
     
     helper_method :favorite_text

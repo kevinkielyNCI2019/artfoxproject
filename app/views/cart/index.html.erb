@@ -1,24 +1,46 @@
+<h1 class="w3-center">YOUR CART CONTENTS</h1>
+
 <% if @cart.empty? %>
     <p>Please add some artworks to the cart!</p>
+    <a href="/artworks" class="w3-button w3-large w3-black w3-hover-yellow">Continue Shopping</a>
 <% end %>
 
 <p id="notice"><%= notice %></p>
 <div id="itemsContainer">
     <table id="customers">
+        <tr>
+              <th>Artwork Name</th>
+              <th>Price (€)</th>
+              <th>Remove</th>
+          </tr>
         <% total = 0 %>
         <% @cart.each do |id| %>
           <% artwork = Artwork.find_by_id(id) %>
+          
          <tr>
             <td>
                 <div class="image">
 <%= link_to artwork.title, artwork %>
                 </div>
                 </td>
-                <td><%= artwork.id %></td>
+                <td><%= artwork.price %></td>
                 <td><a href="/cart/remove/<%= artwork.id %>">Remove From Cart</a></td>
         </tr>
+        
+        <% total += artwork.price %>
+        
         <% end %>
-    </table>
-    <a href="/cart/clear" class="button">Clear Cart</a>
-    <a href="/checkout" class="button">Checkout</a>
+        
+        <tr>
+                
+                <td class="price" colspan="3" text-align="right">The cart total is: <strong><%= number_to_currency(total, :unit=>"€") %></strong></td>
+                
+            </tr>
+        
+    </table><br><br>
+    <% if !@cart.empty? %>
+    <a href="/artworks" class="w3-button w3-large w3-black w3-hover-yellow">Continue Shopping</a>
+    <a href="/cart/clear" class="w3-button w3-large w3-black w3-hover-yellow">Clear Cart</a>
+    <a href="/checkout" class="w3-button w3-large w3-black w3-hover-yellow">Checkout</a>
+    <% end %>
       </div>

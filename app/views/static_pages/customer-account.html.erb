@@ -1,6 +1,8 @@
 <% provide(:title, "Your Customer Account") %>
 
-<h1 class="w3-center">Your account details:</h3>
+<div class="w3-col m6 w3-center w3-padding-large">
+  
+  <h1 class="w3-center">Your account details:</h3>
 <table id="customers">
     <tbody>
       <tr>
@@ -30,9 +32,14 @@
 
 <br/>
 
-<center><%= link_to 'Edit Your Details',edit_customer_registration_path, :class => "w3-button w3-large w3-black w3-hover-yellow" %></center>
+<center><%= link_to 'Edit Your Details',edit_customer_registration_path,
+:class => "w3-button w3-large w3-black w3-hover-yellow" %></center>
+  
+</div>
 
-
+<div class="w3-col m6 w3-center w3-padding-large">
+  
+  
 
 
 <h1 class="w3-center">Your favourite Artworks:</h3>
@@ -48,3 +55,9 @@
 <% if current_customer.favorites.empty? %>
 Please add some favourites!
 <% end %>
+  
+  
+</div>
+
+
+

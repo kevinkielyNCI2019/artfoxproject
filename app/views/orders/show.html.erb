@@ -33,11 +33,11 @@
       
       <tr>
         <th>Order ID no.</th>
-        <th>Item ID no.</th>
-        <th>Album Title</th>
-        <th>Quantity</th>
-        <th>Album Price</th>
-        <th>Total Price</th>
+        <th>Artwork ID no.</th>
+        <th>Artwork Title</th>
+        <th>Category</th>
+        <th>Price</th>
+       
         
     </tr>
       
@@ -51,28 +51,53 @@
       <td><%= orderartwork.id %></td>
       <td><%= orderartwork.title %></td>
       <td><%= orderartwork.cat %></td>
-      <td><%= orderartwork.price %></td>
-      <% linetotal =(1 * orderartwork.price) %>
+      <td><%= number_to_currency(orderartwork.price, :unit=>"€") %></td>
     
-     <td><%= linetotal %></td>
+     
       </tr>
-      <% @total += linetotal %>
+      <% @total += orderartwork.price %>
+      
+      
+      
     <% end %>
+    
+    <tr>
+        <td colspan="3"></td>
+        <td>Order Total: </td>
+        <td><%= number_to_currency(@total, :unit=>"€") %></td>
+      </tr>
     
      <tr>
        
-       <% if @total > 70 %>
+       <% if @total > 1000 %>
        
         <% shipping = 0 %>
         
       <% else %>
-      <% shipping = 5 %>
+      <% shipping = 50 %>
       <% end %>
       
         <% @grandtotal = shipping + @total %>
-        <td>Shipping &euro;5</td>
-        <td>Your Total payable today is: &euro;<%= @grandtotal %></td>
-        <td><a href="/paid/<%= @order.id %>" class="w3-button w3-large w3-black w3-hover-deep-orange">Pay for it</a></td>
+        <td>Shipping &euro;50 <br>(Free if total over €1,000</td>
+        <td>Total Payable: <%= number_to_currency(@grandtotal, :unit=>"€") %></td>
+        <td><!-- PAYPAL CODE HERE!!! -->
+        
+        <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+          
+          <input type="hidden" name="cmd" value="_xclick">
+          <input type="hidden" name="business" value="balance@artfox.com">
+          <input type="hidden" name="item_name" value="Artfox Order Number <%= @order.id %>">
+          <input type="hidden" name="currency_code" value="EUR">
+          <input type="hidden" name="amount" value="<%= @grandtotal %>">
+
+          <input type="hidden" name="return" value="https://0caca7c0c00f4427ad1ffe74b6d85ebc.vfs.cloud9.eu-west-1.amazonaws.com/paid/<%= @order.id %>" >
+          
+          <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif" 
+          name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+          
+        </form>
+        
+        </td>
         </tr>
    </table> 
    
