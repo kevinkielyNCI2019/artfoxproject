@@ -14,28 +14,28 @@
    
     
 </div>
-<br/><br/><br/>
+
 
 <% if artist_signed_in? || customer_signed_in? %>
 
 <% else %>
-<div class="w3-row w3-center w3-padding-16">
-        <span class="homeboxes">
-        <div class="w3-quarter w3-section w3-orange w3-padding-16">
-            <span class="w3-xlarge">Artist?</span> <br/><a href="/artists/sign_up">Sign up here</a>
-        </div>
-        <div class="w3-quarter w3-section w3-green w3-padding-16">
-            <span class="w3-xlarge">Buyer?</span> <br/><a href="/customers/sign_up">Sign up here</a>
-        </div>
-        <div class="w3-quarter w3-section w3-red w3-padding-16">
-            <span class="w3-xlarge">Artist?</span> <br/><a href="/artists/sign_in">Login here</a>
-        </div>
-       <div class="w3-quarter w3-section w3-blue w3-padding-16">
-            <span class="w3-xlarge">Buyer?</span> <br/><a href="/customers/sign_in">Login here</a>
-        </div>
 
-        </span>
-    </div>
+<hr class="home" id="homepanel">
+
+<div class="homeboxes1 w3-col m6 w3-center w3-padding-large">
+    <h2>Artist?</h3>
+    <br><br>
+    <a href="/artists/sign_up" class="w3-bar-item w3-button w3-yellow w3-hover-black">Sign up here</a><br><br>
+    <a href="/artists/sign_in" class="w3-bar-item w3-button w3-yellow w3-hover-black">Login here</a>
+</div>
+<div class="homeboxes2 w3-col m6 w3-center w3-padding-large">
+    <h2>Customer?</h3>
+    <br><br>
+    <a href="/customers/sign_up" class="w3-bar-item w3-button w3-yellow w3-hover-black">Sign up here</a><br><br>
+    <a href="/customers/sign_in" class="w3-bar-item w3-button w3-yellow w3-hover-black">Login here</a>
+</div>
+
+
 <% end %>
 
 

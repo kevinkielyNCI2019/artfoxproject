@@ -1,4 +1,47 @@
 <% provide(:title, "Frequently Asked Questions") %>
 
-<h1>StaticPages#faq</h1>
-<p>Find me in app/views/static_pages/faq.html.erb</p>
+ <h1 class="w3-center">FREQUENTLY ASKED QUESTIONS</h1>
+ 
+ <div class="w3-row w3-padding-32 w3-section">
+     
+     <button class="accordion">Is Postage Included in Prices?</button>
+<div class="panel">
+  <p>NO. Postage costs €50 flat rate for all orders, however if total of order is over €700 then shipping is free</p>
+</div>
+
+<button class="accordion">Can I order more than one artwork from different artists in the same order?</button>
+<div class="panel">
+  <p>YES. You can order as many different artists artworks as you wish in one order. The subtotal is paid into a holding PayPal
+  account whereupon later this total is divided between the artists.</p>
+</div>
+
+<button class="accordion">Can I buy and sell art from one account?</button>
+<div class="panel">
+  <p>NO. You must sign up for separate buyer or seller accounts.</p>
+</div>
+<button class="accordion">What about refunds?</button>
+<div class="panel">
+  <p>If you are not happy with a purchase, you may contact the artist directly to arrange details. On each artworks page,
+  there is a link underneath to contact the artist.</p>
+</div>
+     
+     
+ </div>
+ 
+ <script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight) {
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    }
+  });
+}
+
+ </script>

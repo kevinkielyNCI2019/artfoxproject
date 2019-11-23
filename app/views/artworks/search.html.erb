@@ -1,0 +1,63 @@
+<% if @artworks.length == 0 %>
+
+Nothing matches your search, try again!
+
+<% end %>
+
+
+
+
+<div class="w3-content w3-container w3-padding-64">
+  
+  <h1 class="w3-center">YOUR SEARCH RESULT(S) ARE...</h1>
+  
+
+
+    <% @artworks.each do |artwork| %>
+    
+    
+      
+      <div class="w3-col m4 w3-panel">
+      
+        <%= image_tag(artwork.artpic, :class => "itemholsIm") if artwork.artpic.attached? %>
+        
+        </div>
+        
+       <div class="w3-col m8 w3-panel">
+          <div class="myCols">
+            <strong>"<%= artwork.title %>"</strong> | <%= artwork.cat %> | 
+            Price: <%= number_to_currency(artwork.price, :unit => "€")  %> | 
+            
+            <% if artwork.status == "In Stock" %>
+            <span class="statusGreen"><%= artwork.status %></span>
+            <% else %>
+            <span class="statusRed"><%= artwork.status %></span>
+            <% end %>
+            
+            <br/>
+            <p class="w3-left"><%= artwork.desc %></p>
+            <p>
+            <%= link_to 'Show More >>', artwork, :class => "w3-button w3-large w3-black w3-hover-yellow", :role => "button" %>
+        <% if artist_signed_in? %>
+        <%= link_to 'Edit', edit_artwork_path(artwork), :class => "w3-button w3-large w3-black w3-hover-yellow", :role => "button" %>
+        <%= link_to 'Delete Artwork', artwork, :class => "w3-button w3-large w3-black w3-hover-yellow", :role => "button", method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% end %>
+        
+        
+        </p>
+      
+                </div>
+</div>
+      
+    <% end %>
+    
+    
+
+<div class="bottomButtons">   
+    
+  <% if artist_signed_in? %>
+    
+       <%= link_to 'Add Artwork',  new_artwork_path, :class => "w3-button w3-large w3-black w3-hover-yellow", :role => "button" %>
+       
+       <% end %>
+    </div>

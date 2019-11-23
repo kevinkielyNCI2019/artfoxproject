@@ -187,6 +187,172 @@ background-color: gold;
     
 }
 
-.homeboxes a {
-    color: white;
+.homeboxes1 {
+    min-height: 300px;
+    border: 5px solid white;
+    background-image: url(home-artist.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    /*background-attachment: fixed; */
+    background-size: cover;
+    background-color: #464646;
+
+}
+
+.homeboxes2 {
+    min-height: 300px;
+    border: 5px solid white;
+    background-image: url(home-customer.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    /*background-attachment: fixed; */
+    background-size: cover;
+    background-color: #464646;
+
+}
+
+.homeboxes1 h2, .homeboxes2 h2 {
+    color: gold;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 3px;
+}
+
+/* search box at top right hand corner */
+#mySearch {
+    color: gold;
+      display:none;
+      width: 70%;
+      margin: 0 auto;
+      padding: 50px 0;
+      text-align: center;
+      background-color: black;
+      margin-top: 20px;
+}
+
+#mySearch input {
+    margin-bottom: 15px;
+}
+
+.topcolors {
+    height: 6px;
+    background-color: #000;
+    position:fixed;
+    z-index:7;
+    width:100%;
+    top:0;
+}
+
+.w3-topkk {
+    position:fixed;
+    width:100%;
+    z-index:1;
+    top:6px;
+}
+
+.w3-buttonkk {
+    color: #000;
+    text-decoration: none;
+}
+
+.w3-buttonkk:hover{
+    color:#fff!important;
+    background-color:#000!important;
+    text-decoration: none;
+}
+
+.home {
+   width: 70%;
+   margin: 0 auto;
+   border-top: 1px dashed black;
+   margin-top: 50px;
+   margin-bottom: 50px;
+}
+
+/* Style the buttons that are used to open and close the accordion panel */
+.accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  text-align: left;
+  border: none;
+  outline: none;
+  transition: 0.4s;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .accordion:hover {
+  background-color: #ccc;
+}
+
+/* Style the accordion panel. Note: hidden by default */
+.panel {
+  padding: 0 18px;
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+
+.accordion:after {
+  content: '\02795'; /* Unicode character for "plus" sign (+) */
+  font-size: 13px;
+  color: #777;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2796"; /* Unicode character for "minus" sign (-) */
+}
+
+
+
+/* css for cart icon tooltip */
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  top: -5px;
+  right: 105%;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+#cartpanel {
+    background-color: black;
+    position: fixed;
+    top: 200px;
+    right: 0;
+    padding: 15px;
+    z-index: 400;
+}
+
+@media (max-width:600px){
+    #cartpanel {
+    background-color: black;
+    position: fixed;
+    top: 100px;
+    right: 0;
+    padding: 8px;
+    z-index: 400;
+}
 }

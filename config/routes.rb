@@ -45,6 +45,8 @@ get '/checkout' => 'cart#createOrder'
   
   get '/paid/:id' => 'static_pages#paid'
   
+  post '/search' => 'artworks#search'
+  
   #  get 'static_pages/home'
  # get 'static_pages/aboutus'
   #get 'static_pages/faq'
