@@ -23,7 +23,7 @@
 <%= link_to artwork.title, artwork %>
                 </div>
                 </td>
-                <td><%= artwork.price %></td>
+                <td><%= number_to_currency(artwork.price, :unit=>"€") %></td>
                 <td><a href="/cart/remove/<%= artwork.id %>">Remove From Cart</a></td>
         </tr>
         

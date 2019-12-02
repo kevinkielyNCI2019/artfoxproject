@@ -39,6 +39,6 @@
 
 <br/><% end %>
 
-<% if artist_signed_in? %>
+<% if artist_signed_in? && @artwork.status == "In Stock" %>
 <%= link_to 'Edit', edit_artwork_path(@artwork),:class => "w3-button w3-large w3-black w3-hover-yellow" %>  
 <% end %>

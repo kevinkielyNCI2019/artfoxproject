@@ -34,7 +34,7 @@
             <p class="w3-left"><%= artwork.desc %></p>
             <p>
             <%= link_to 'Show More >>', artwork, :class => "w3-button w3-large w3-black w3-hover-yellow", :role => "button" %>
-        <% if artist_signed_in? %>
+        <% if artist_signed_in? && artwork.status == "In Stock" %>
         <%= link_to 'Edit', edit_artwork_path(artwork), :class => "w3-button w3-large w3-black w3-hover-yellow", :role => "button" %>
         <%= link_to 'Delete Artwork', artwork, :class => "w3-button w3-large w3-black w3-hover-yellow", :role => "button", method: :delete, data: { confirm: 'Are you sure?' } %>
         <% end %>

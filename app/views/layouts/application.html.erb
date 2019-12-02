@@ -88,6 +88,8 @@
                  
                  <%= link_to "Your Artist Account", "/artist-account", :class => "w3-bar-item w3-button w3-yellow w3-hover-black" %>
                  <%= link_to "View Your Art Portfolio", "/artworks", :class => "w3-bar-item w3-button w3-yellow w3-hover-black"  %>
+                <%= link_to 'Add Artwork',  new_artwork_path, :class => "w3-bar-item w3-button w3-yellow w3-hover-black" %>
+
                  <%= link_to 'Sign out', destroy_artist_session_path, :class => "w3-bar-item w3-button w3-yellow w3-hover-black", :method => :delete %>
           <!-- This code deals with Customer -->
           <% elsif customer_signed_in? %>

@@ -31,19 +31,15 @@
      </tr>
      <tr>
         <td><%= f.label "Your Name" %></td>
-        <td><%= f.text_field :a_name %></td>
+        <td><%= f.text_field :a_name, :required => true %></td>
       </tr>
       <tr>
         <td><%= f.label "Your Address" %></td>
-        <td><%= f.text_field :a_address %></td>
+        <td><%= f.text_field :a_address, :required => true %></td>
       </tr>
       <tr>
         <td><%= f.label "Phone Number" %></td>
-        <td><%= f.number_field :a_phonenumber %></td>
-      </tr>
-      <tr>
-        <td><%= f.label "PayPal Email Address" %></td>
-        <td><%= f.email_field :a_paypal %></td>
+        <td><%= f.number_field :a_phonenumber, :required => true %></td>
       </tr>
       <tr>
         <td colspan="2"><center><%= f.submit "Update" %></center></td>

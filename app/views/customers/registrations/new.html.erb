@@ -24,20 +24,17 @@
       </tr>
       <tr>
         <td><%= f.label "Your Name" %></td>
-        <td><%= f.text_field :c_name %></td>
+        <td><%= f.text_field :c_name, :required => true %></td>
       </tr>
       <tr>
         <td><%= f.label "Your Address" %></td>
-        <td><%= f.text_field :address %></td>
+        <td><%= f.text_field :address, :required => true %></td>
       </tr>
       <tr>
         <td><%= f.label "Phone Number" %></td>
-        <td><%= f.number_field :c_phonenumber %></td>
+        <td><%= f.number_field :c_phonenumber, :required => true %></td>
       </tr>
-      <tr>
-        <td><%= f.label "PayPal Email Address" %></td>
-        <td><%= f.email_field :c_paypal %></td>
-      </tr>
+     
       <tr>
         <td colspan="2"><center><%= f.submit "Sign up" %></center></td>
       </tr>
