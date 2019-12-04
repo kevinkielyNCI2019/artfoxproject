@@ -82,6 +82,8 @@
         <td>Total Payable: <%= number_to_currency(@grandtotal, :unit=>"€") %></td>
         <td><!-- PAYPAL CODE HERE!!! -->
         
+        <% if @order.status == "Pending" %>
+        
         <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
           
           <input type="hidden" name="cmd" value="_xclick">
@@ -96,6 +98,12 @@
           name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
           
         </form>
+        
+        <% else %>
+        
+        Paid!
+        
+        <% end %>
         
         </td>
         </tr>
